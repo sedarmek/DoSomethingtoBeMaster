@@ -1,0 +1,8 @@
+.Cabecera {
+    color: white;
+    box-sizing: border-box;
+    height: 7rem;
+    width: auto;
+    background-color: #282c34;
+    border: 0.5rem solid black;
+}

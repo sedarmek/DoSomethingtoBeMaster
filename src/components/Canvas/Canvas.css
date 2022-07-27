@@ -1,0 +1,9 @@
+.Canvas {
+    margin-left: auto;
+    margin-right: auto;
+    height: 10rem;
+    width: 10rem;
+    border: 0.2rem solid white;
+    border-radius: 0.5rem;
+    background-color: rgb(30, 34, 45);
+}

@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.Cronometro {
+    display: inline-block;
+    height: 3.5rem;
+    width: 8rem;
+    border: 0.2rem solid white;
+    border-radius: 0.5rem;
+    background-color: rgb(30, 34, 45);
+}
+.cronometro_button{
+    color: white;
+    height: 1.5rem;
+    width: 3.5rem;
+    border: 0.2rem solid #ccc;
+    border-radius: 0.5rem;
+    background-color: rgb(69, 71, 88);
+}

@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Convertidor {
+    display: inline-block;
+    height: 3.5rem;
+    width: 8rem;
+    border: 0.2rem solid white;
+    border-radius: 0.5rem;
+    background-color: rgb(30, 34, 45);
+}
+.convertidor_minutos{
+    display: inline-block;
+    box-sizing: border-box;
+    height: auto;
+    width: 3.5rem;
+    border: 0.2rem solid #ccc;
+    border-radius: 0.5rem;
+    background-color: transparent;
+
+}
+.convertidor_horas{
+    display: inline-block;
+}
