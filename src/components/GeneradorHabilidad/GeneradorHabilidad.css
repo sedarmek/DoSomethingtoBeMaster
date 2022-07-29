@@ -1,0 +1,15 @@
+.GeneradorHabilidad {
+    text-align: left;
+    margin: 0.1rem auto 0.1rem auto;
+    padding: 0;
+    height: auto;
+    width: 25rem;
+}
+.GeneradorHabilidad_button{
+    color: #ccc;
+    height: 1.5rem;
+    width: 4rem;
+    border: 0.15rem solid #ccc;
+    border-radius: 0.5rem;
+    background-color: rgb(47, 47, 97);
+}
