@@ -6,7 +6,6 @@ import GraficaHabilidades from '../GraficaHabilidades/GraficaHabilidades'
 const Canvas = () => {
   return (
     <div className="Canvas">
-      Canvas Component
       <GraficaHabilidades></GraficaHabilidades>
     </div>
   )
