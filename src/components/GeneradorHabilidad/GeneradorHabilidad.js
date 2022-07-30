@@ -9,7 +9,7 @@ function GeneradorHabilidad() {
     updateHabilidades(++countHabilidades)
   }
   function decrementHabilidades(){
-    updateHabilidades(--countHabilidades)
+    if(countHabilidades > 0) updateHabilidades(--countHabilidades)
   }
   function printHabilidades(){
     let habilidades = Array.apply('valor', Array(countHabilidades))
