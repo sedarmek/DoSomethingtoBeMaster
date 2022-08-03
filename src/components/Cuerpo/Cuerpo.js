@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
 import './Cuerpo.css';
+
 import Canvas from '../Canvas/Canvas'
-// import Habilidad from '../Habilidad/Habilidad'
 import Cronometro from '../Cronometro/Cronometro'
 import Convertidor from '../Convertidor/Convertidor'
 import GeneradorHabilidad from '../GeneradorHabilidad/GeneradorHabilidad';
 
 function Cuerpo() {
-  let [numeroHabilidades, setHabilidades] = useState('sin numero')
+  let [numeroHabilidades, setHabilidades] = useState(0)
   const updateHabilidades = (childDataCount)=>{
     setHabilidades(childDataCount)
   }
@@ -21,10 +20,5 @@ function Cuerpo() {
     </div>
   );
 }
-
-
-// Cuerpo.propTypes = {};
-
-// Cuerpo.defaultProps = {};
 
 export default Cuerpo;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './GeneradorHabilidad.css';
 import Habilidad from '../Habilidad/Habilidad'
 
@@ -11,8 +11,8 @@ function GeneradorHabilidad(info) {
   function decrementHabilidades(){
     if(countHabilidades > 0) updateHabilidades(--countHabilidades)
   }
-  function printHabilidades(){
-    let habilidades = Array.apply('valor', Array(countHabilidades))
+  function printHabilidades(cantidad){
+    let habilidades = Array.apply('valor', Array(cantidad))
     return (
           <div>
             {
@@ -23,15 +23,17 @@ function GeneradorHabilidad(info) {
           </div>
     )
   }
-  function sendCountHabilidadesToParent(){
-    info.getCountHabilidadByChild(countHabilidades);
+  function sendCountHabilidadesToParent(numberHabilidades){
+    info.getCountHabilidadByChild(numberHabilidades);
   }
+  useEffect(()=>{
+    sendCountHabilidadesToParent(countHabilidades)
+  })
   return (
   <div className="GeneradorHabilidad" id='prueba'>
-    {printHabilidades()}
+    {printHabilidades(countHabilidades)}
     <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}>-</button>
     <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}>+</button>
-    <button className="GeneradorHabilidad_button" onClick={sendCountHabilidadesToParent}>Actualizar grafica</button>
   </div>
   );
 }
