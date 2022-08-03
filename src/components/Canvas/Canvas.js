@@ -1,18 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import './Canvas.css';
 import GraficaHabilidades from '../GraficaHabilidades/GraficaHabilidades'
 
-const Canvas = () => {
+const Canvas = (info) => {
   return (
     <div className="Canvas">
-      <GraficaHabilidades></GraficaHabilidades>
+      <GraficaHabilidades numeroHabilidadesToGraficHabilidades={info.NumeroHabilidadesToCanvas}></GraficaHabilidades>
     </div>
   )
 }
-
-Canvas.propTypes = {};
-
-Canvas.defaultProps = {};
 
 export default Canvas;

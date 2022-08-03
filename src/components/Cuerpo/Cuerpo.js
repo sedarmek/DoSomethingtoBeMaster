@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import './Cuerpo.css';
 import Canvas from '../Canvas/Canvas'
@@ -7,15 +7,21 @@ import Cronometro from '../Cronometro/Cronometro'
 import Convertidor from '../Convertidor/Convertidor'
 import GeneradorHabilidad from '../GeneradorHabilidad/GeneradorHabilidad';
 
-const Cuerpo = () => (
-  <div className="Cuerpo">
-    Cuerpo Component
-    <Canvas/>
-    <GeneradorHabilidad className='GeneradorHabilidad'/>
-    <Cronometro/>
-    <Convertidor/>
-  </div>
-);
+function Cuerpo() {
+  let [numeroHabilidades, setHabilidades] = useState('sin numero')
+  const updateHabilidades = (childDataCount)=>{
+    setHabilidades(childDataCount)
+  }
+  return (
+    <div className="Cuerpo">
+      <Canvas NumeroHabilidadesToCanvas={numeroHabilidades}/>
+      <GeneradorHabilidad className='GeneradorHabilidad' getCountHabilidadByChild = {updateHabilidades}/>
+      <Cronometro/>
+      <Convertidor/>
+    </div>
+  );
+}
+
 
 // Cuerpo.propTypes = {};
 
