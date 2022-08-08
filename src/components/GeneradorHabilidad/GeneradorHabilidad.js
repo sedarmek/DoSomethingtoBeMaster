@@ -1,37 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './GeneradorHabilidad.css';
 import Habilidad from '../Habilidad/Habilidad'
 
 function GeneradorHabilidad(info) {
-  let [countHabilidades, updateHabilidades] = useState(3)
-
+  
   function incrementHabilidades(){
-    updateHabilidades(++countHabilidades)
+    info.IncrementarHabilidades();
   }
   function decrementHabilidades(){
-    if(countHabilidades > 0) updateHabilidades(--countHabilidades)
+    if(info.HorasHabilidades.length > 1) {
+      info.DecrementarHabilidades();
+    }
   }
-  function printHabilidades(cantidad){
-    let habilidades = Array.apply('valor', Array(cantidad))
+  
+  function printHabilidades(horas){
+    let habilidades = horas;
     return (
           <div>
             {
             habilidades.map((value, index) => {
-              return <Habilidad key={index}></Habilidad>
+              return <Habilidad key={index} keyToChild={index} HorasHabilidades={info.HorasHabilidades} GetHourOfChildToParent={getHourOfChildToParent}></Habilidad>
               })
             }
           </div>
     )
   }
-  function sendCountHabilidadesToParent(numberHabilidades){
-    info.getCountHabilidadByChild(numberHabilidades);
+  /* ***se crea un array que guardara todas las horas de las habilidades */
+  /* ***se crea una funcion que recibira las horas del componente hijo cada que se cambie la hora*/
+  function getHourOfChildToParent(hourChild, indexChild) {
+    info.ActualizarHorasDeHabilidad(hourChild, indexChild);
   }
-  useEffect(()=>{
-    sendCountHabilidadesToParent(countHabilidades)
-  })
+  // useEffect(()=>{
+  //   // sendHoursHabilidades(horasHabilidades);/* bucle: renderiza el cuerpo qu llamada otra vez a este. */
+  // })
+
   return (
   <div className="GeneradorHabilidad" id='prueba'>
-    {printHabilidades(countHabilidades)}
+    {printHabilidades(info.HorasHabilidades)}
     <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}>-</button>
     <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}>+</button>
   </div>

@@ -20,10 +20,10 @@ ChartJS.register(
 );
 
 function GraficaHabilidades(info) {
-  const nHabilidades = info.numeroHabilidadesToGraficHabilidades
+  const nHabilidades = info.HorasHabilidades.length
   const nombresHabilidad = [...Array(nHabilidades)].map((val, index) => 'H'+(index+1));
   const horasLimiteHabilidad = [...Array(nHabilidades)].map((val) => 250);
-  const horasHabilidad = [...Array(nHabilidades)].map((val) => 50);
+  const horasHabilidad = info.HorasHabilidades;
   const data = {
     labels: nombresHabilidad,
     datasets: [
