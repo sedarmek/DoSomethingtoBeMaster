@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/DoSomethingtoBeMaster/static/css/main.23eb603f.css",
+    "main.js": "/DoSomethingtoBeMaster/static/js/main.031bf382.js",
+    "static/js/787.77e271b1.chunk.js": "/DoSomethingtoBeMaster/static/js/787.77e271b1.chunk.js",
+    "index.html": "/DoSomethingtoBeMaster/index.html",
+    "main.23eb603f.css.map": "/DoSomethingtoBeMaster/static/css/main.23eb603f.css.map",
+    "main.031bf382.js.map": "/DoSomethingtoBeMaster/static/js/main.031bf382.js.map",
+    "787.77e271b1.chunk.js.map": "/DoSomethingtoBeMaster/static/js/787.77e271b1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23eb603f.css",
+    "static/js/main.031bf382.js"
+  ]
+}
