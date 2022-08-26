@@ -1,8 +1,21 @@
 .Cabecera {
     color: white;
     box-sizing: border-box;
-    height: 7rem;
+    height: 6rem;
     width: auto;
-    background-color: #282c34;
-    border: 0.5rem solid black;
+    background-color: #1d222b;
+}
+.link{
+    color: #4869a8;
+    text-decoration: none;
+    line-height: 1.5rem;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.1rem;
+    border-radius: 0.4rem;
+    background-color: #263248;
 }

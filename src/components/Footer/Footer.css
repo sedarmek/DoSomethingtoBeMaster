@@ -1,0 +1,16 @@
+.Footer {
+    color: white;
+    box-sizing: border-box;
+    height: 5rem;
+    width: auto;
+    background-color: #1d222b;
+}
+.IconFooter{
+    color: #4869a8;
+    font-size: 1.6rem;
+}
+
+.IconFooter:hover{
+    color: #7b92be;
+    font-size: 1.7rem;
+}

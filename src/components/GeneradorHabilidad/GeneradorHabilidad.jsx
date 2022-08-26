@@ -1,9 +1,14 @@
 import React from 'react';
 import './GeneradorHabilidad.css';
 import Habilidad from '../Habilidad/Habilidad'
+import { Hability } from '../../models/hability.class'
+
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 function GeneradorHabilidad(info) {
   
+  const habilityDefault = new Hability("habilidad por defecto", 10);
+
   function incrementHabilidades(){
     info.IncrementarHabilidades();
   }
@@ -37,8 +42,8 @@ function GeneradorHabilidad(info) {
   return (
   <div className="GeneradorHabilidad" id='prueba'>
     {printHabilidades(info.HorasHabilidades)}
-    <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}>-</button>
-    <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}>+</button>
+    <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}><FaMinus/></button>
+    <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}><FaPlus/></button>
   </div>
   );
 }

@@ -1,0 +1,9 @@
+.NotFoundPage {
+    color: rgb(144, 70, 70);
+    box-sizing: border-box;
+    height: 85vh;
+    background-color: #282c34;
+}
+.icon404{
+    font-size: 4rem;
+}

@@ -1,8 +1,7 @@
 .Cuerpo {
     color: white;
     box-sizing: border-box;
-    min-height: 42rem;
+    min-height: 38rem;
     width: auto;
     background-color: #282c34;
-    border: 0.5rem solid black;
 }
