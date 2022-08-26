@@ -2,21 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Cuerpo from '../src/components/Cuerpo/Cuerpo';
-import Cronometro from '../src/components/Cronometro/Cronometro';
-import Convertidor from '../src/components/Convertidor/Convertidor';
+// import Cuerpo from '../src/components/Cuerpo/Cuerpo';
+// import Cronometro from '../src/components/Cronometro/Cronometro';
+// import Convertidor from '../src/components/Convertidor/Convertidor';
 
 import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} >
       <Route path="cuerpo" element={<Cuerpo />} />
@@ -24,7 +24,8 @@ root.render(
       <Route path="convertidor" element={<Convertidor />} />
       </Route>
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter> */}
+  <App></App>
   </React.StrictMode>
 );
 
