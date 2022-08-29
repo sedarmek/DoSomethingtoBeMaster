@@ -24,16 +24,15 @@ function GeneradorHabilidad(info) {
           <div>
             {
             habilidades.map((hour, index) => {
-              return <Habilidad key={index} keyToChild={index} GetHourOfChildToParent={getHourOfChildToParent}></Habilidad>
+              return <Habilidad key={index} keyToChild={index} getHabilityData={getHabilityData}></Habilidad>
               })
             }
           </div>
     )
   }
-  /* ***se crea un array que guardara todas las horas de las habilidades */
-  /* ***se crea una funcion que recibira las horas del componente hijo cada que se cambie la hora*/
-  function getHourOfChildToParent(hourChild, indexChild) {
-    info.ActualizarHorasDeHabilidad(hourChild, indexChild);
+
+  function getHabilityData(data){
+    info.UpdateHabilityData(data);
   }
   const habilitiesContext = useContext(HabilitiesContext);
   return (

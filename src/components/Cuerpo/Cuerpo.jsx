@@ -33,10 +33,12 @@ function Cuerpo() {
     })
   }
 
-  function actualizarHoraDeHabilidad(hourChild, indexChild) {
+ 
+  function UpdateHabilityData(data){
     setHabilitiesData(()=>{
       let currentHabilitiesData = [...habilitiesData]
-      currentHabilitiesData[indexChild].hours = Number(hourChild);
+      currentHabilitiesData[data.index].hours = Number(data.hours);
+      currentHabilitiesData[data.index].name = data.name;
       saveInLocalStorage('localStorageHabilities', currentHabilitiesData);
       return currentHabilitiesData;
     });
@@ -49,11 +51,12 @@ function Cuerpo() {
     <HabilitiesContext.Provider value={habilitiesData}>
     <div className="Cuerpo">
       <Canvas/>
-      <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} ActualizarHorasDeHabilidad={actualizarHoraDeHabilidad}/>
+      <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} UpdateHabilityData={UpdateHabilityData}/>
       <Cronometro/>
       <Convertidor/>
     </div>
     {/* {localStorage.clear()} */}
+    {console.log({habilitiesData})}
     </HabilitiesContext.Provider>
   );
 }

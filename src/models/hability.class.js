@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export class Hability {
-    name = 'defaultName';
+    name = 'default hability';
     hours = 0;
 
     constructor(name, hours){
