@@ -1,23 +1,28 @@
-import { React } from 'react';
 import './Habilidad.css';
-import { FaPenSquare, FaRegSave } from "react-icons/fa";
+import { React, useContext } from 'react';
+
+import { FaPenSquare } from "react-icons/fa";
+
+import { HabilitiesContext } from '../Cuerpo/Cuerpo'
 
 function Habilidad(info) {
 
   function sendHourToParent(hora) {
-    info.GetHourOfChildToParent(hora.target.value, info.keyToChild)
+    info.GetHourOfChildToParent(hora.target.value, info.keyToChild);
   }
+  // actualiza la data del contexto
+  function updateContextHoursTest(hora){
+    habilitiesContext[info.keyToChild].hours = Number(hora.target.value);
+  }
+  const habilitiesContext = useContext(HabilitiesContext)
 
-  function getHourFirst(event) {
-    event.target.value = info.HorasHabilidades[info.keyToChild]
-  }
   return(
     <div className="Habilidad">
       <FaPenSquare className='icono_pen'></FaPenSquare>
       <input type="text" className="input_nombreHabilidad" placeholder='Escribe la habilidad'/>
-      <input type="number" className="input_horasHabilidad" placeholder='horas' onChange={sendHourToParent} max={250}/>
-      <p>{info.HorasHabilidades[info.keyToChild]}/1000 horas</p>
-      <FaRegSave className="icono_save"></FaRegSave>
+      <input type="number" className="input_horasHabilidad" placeholder='horas' onChange={sendHourToParent} max={250} id="input_hourHabilidad"/>
+      {/* value={habilitiesContext[info.keyToChild].hours} */}
+      <p>{habilitiesContext[info.keyToChild].hours}/1000 horas</p>
     </div>
   );
 }

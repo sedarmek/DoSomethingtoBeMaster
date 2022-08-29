@@ -2,10 +2,10 @@ import React from 'react';
 import './Canvas.css';
 import GraficaHabilidades from '../GraficaHabilidades/GraficaHabilidades'
 
-const Canvas = (info) => {
+const Canvas = () => {
   return (
     <div className="Canvas">
-      <GraficaHabilidades HorasHabilidades={info.HorasHabilidades}/>
+      <GraficaHabilidades/>
     </div>
   )
 }

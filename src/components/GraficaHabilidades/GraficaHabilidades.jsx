@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { HabilitiesContext } from '../Cuerpo/Cuerpo'
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -19,12 +20,13 @@ ChartJS.register(
   Legend
 );
 
-function GraficaHabilidades(info) {
-  const numberHabilidades = info.HorasHabilidades.length
+function GraficaHabilidades() {
+  const habilitiesContext = useContext(HabilitiesContext);
+  const numberHabilidades = habilitiesContext.length
   const horaLimite = 1000;
   const nombresHabilidad = [...Array(numberHabilidades)].map((val, index) => 'H'+(index+1));
-  const horasLimiteHabilidad = [...Array(numberHabilidades)].map((val) => horaLimite);
-  const horasHabilidad = info.HorasHabilidades;
+  const horasLimiteHabilidad = Array(numberHabilidades).fill(horaLimite);
+  const horasHabilidad = habilitiesContext.map((value)=>value.hours);
   const data = {
     labels: nombresHabilidad,
     datasets: [

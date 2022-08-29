@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './GeneradorHabilidad.css';
-import Habilidad from '../Habilidad/Habilidad'
-import { Hability } from '../../models/hability.class'
+
+import Habilidad from '../Habilidad/Habilidad';
+import { HabilitiesContext } from '../Cuerpo/Cuerpo'
 
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 function GeneradorHabilidad(info) {
   
-  const habilityDefault = new Hability("habilidad por defecto", 10);
 
   function incrementHabilidades(){
     info.IncrementarHabilidades();
   }
   function decrementHabilidades(){
-    if(info.HorasHabilidades.length > 1) {
+    if(habilitiesContext.length > 1) {
       info.DecrementarHabilidades();
     }
   }
@@ -23,8 +23,8 @@ function GeneradorHabilidad(info) {
     return (
           <div>
             {
-            habilidades.map((value, index) => {
-              return <Habilidad key={index} keyToChild={index} HorasHabilidades={info.HorasHabilidades} GetHourOfChildToParent={getHourOfChildToParent}></Habilidad>
+            habilidades.map((hour, index) => {
+              return <Habilidad key={index} keyToChild={index} GetHourOfChildToParent={getHourOfChildToParent}></Habilidad>
               })
             }
           </div>
@@ -35,13 +35,10 @@ function GeneradorHabilidad(info) {
   function getHourOfChildToParent(hourChild, indexChild) {
     info.ActualizarHorasDeHabilidad(hourChild, indexChild);
   }
-  // useEffect(()=>{
-  //   // sendHoursHabilidades(horasHabilidades);/* bucle: renderiza el cuerpo qu llamada otra vez a este. */
-  // })
-
+  const habilitiesContext = useContext(HabilitiesContext);
   return (
   <div className="GeneradorHabilidad" id='prueba'>
-    {printHabilidades(info.HorasHabilidades)}
+    {printHabilidades(habilitiesContext.map((value)=>value.hours))}
     <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}><FaMinus/></button>
     <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}><FaPlus/></button>
   </div>

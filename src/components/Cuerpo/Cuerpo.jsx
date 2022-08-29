@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, createContext } from 'react';
 import './Cuerpo.css';
 
 import Canvas from '../Canvas/Canvas'
@@ -6,41 +6,55 @@ import Cronometro from '../Cronometro/Cronometro'
 import Convertidor from '../Convertidor/Convertidor'
 import GeneradorHabilidad from '../GeneradorHabilidad/GeneradorHabilidad';
 
+export const HabilitiesContext = createContext([]);
+
 function Cuerpo() {
   const defaultNumberHabilities = 3;
-  const defaultHour = 50;
-  let localStorageHour = localStorage.getItem('localHours') && 'vacio';
-  let [horasHabilidades, setHorasHabilidades] = useState(Array(defaultNumberHabilities).fill(defaultHour))
+  const defaultHour = 0.0;
+  let localStorageHabilities = JSON.parse(localStorage.getItem('localStorageHabilities'));
+  const defaultHability = {
+    name: 'name of hability',
+    hours: defaultHour
+  };
+  const initialHabilitiesData = Array(defaultNumberHabilities).fill(defaultHability);
 
+  let [habilitiesData, setHabilitiesData] = useState(localStorageHabilities ?? initialHabilitiesData);
 
   function incrementarHabilidades(){
-    setHorasHabilidades([...horasHabilidades, defaultHour])
+    setHabilitiesData(()=>{
+      saveInLocalStorage('localStorageHabilities', [...habilitiesData, defaultHability]);
+      return [...habilitiesData, defaultHability];
+    });
   }
   function decrementarHabilidades(){
-    setHorasHabilidades(horasHabilidades.slice(0, horasHabilidades.length-1))
+    setHabilitiesData(()=>{
+      saveInLocalStorage('localStorageHabilities', habilitiesData.slice(0, habilitiesData.length-1));
+      return habilitiesData.slice(0, habilitiesData.length-1)
+    })
   }
 
   function actualizarHoraDeHabilidad(hourChild, indexChild) {
-    setHorasHabilidades(()=>{
-      horasHabilidades = [...horasHabilidades]
-      horasHabilidades.splice(indexChild, 1, parseInt(hourChild))
-      return horasHabilidades
-    })
+    setHabilitiesData(()=>{
+      let currentHabilitiesData = [...habilitiesData]
+      currentHabilitiesData[indexChild].hours = Number(hourChild);
+      saveInLocalStorage('localStorageHabilities', currentHabilitiesData);
+      return currentHabilitiesData;
+    });
   }
-  // funcion para guardar el array en el cache
-  function saveInLocalStorage(horas) {
-      localStorageHour = horas
-      // localStorage.setItem('')
-      console.log({localStorageHour})
+  function saveInLocalStorage(storageName, data) {
+      localStorage.setItem(storageName, JSON.stringify(data))
   }
-  useEffect(()=>{saveInLocalStorage(horasHabilidades)})
+
   return (
+    <HabilitiesContext.Provider value={habilitiesData}>
     <div className="Cuerpo">
-      <Canvas HorasHabilidades={horasHabilidades}/>
-      <GeneradorHabilidad className='GeneradorHabilidad' HorasHabilidades={horasHabilidades} IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} ActualizarHorasDeHabilidad={actualizarHoraDeHabilidad}/>
+      <Canvas/>
+      <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} ActualizarHorasDeHabilidad={actualizarHoraDeHabilidad}/>
       <Cronometro/>
       <Convertidor/>
     </div>
+    {/* {localStorage.clear()} */}
+    </HabilitiesContext.Provider>
   );
 }
 
