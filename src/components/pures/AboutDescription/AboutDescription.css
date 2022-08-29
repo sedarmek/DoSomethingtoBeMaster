@@ -1,0 +1,14 @@
+.AboutDescription {
+    text-align: center;
+    min-height: 80vh;
+}
+.aboutDescription_listLevels{
+    text-align: left;
+    list-style: circle;
+    list-style-type: circle;
+    margin-left: 0.5rem;
+}
+.aboutDescription_listLevels li{
+    list-style: circle;
+    list-style-type: circle;
+}

@@ -7,7 +7,7 @@ const Cabecera = () => (
   <div className="Cabecera">
     <nav>
       <NavLink to="DoSomethingtoBeMaster" className="link">Home</NavLink>
-      <NavLink to="error" className="link">Not found</NavLink>
+      <NavLink to="about" className="link">About</NavLink>
     </nav>
   </div>
 );

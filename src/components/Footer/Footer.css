@@ -1,7 +1,7 @@
 .Footer {
     color: white;
     box-sizing: border-box;
-    height: 5rem;
+    min-height: 10vh;
     width: auto;
     background-color: #1d222b;
 }
