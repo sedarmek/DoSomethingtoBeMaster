@@ -48,6 +48,3 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
-.icono_save{
-    font-size: 1.5rem;
-}

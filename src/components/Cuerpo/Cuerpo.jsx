@@ -56,7 +56,6 @@ function Cuerpo() {
       <Convertidor/>
     </div>
     {/* {localStorage.clear()} */}
-    {console.log({habilitiesData})}
     </HabilitiesContext.Provider>
   );
 }

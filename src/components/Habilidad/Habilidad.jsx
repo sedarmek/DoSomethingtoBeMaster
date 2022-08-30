@@ -24,7 +24,7 @@ function Habilidad(info) {
       info.getHabilityData(data);
     }
   }
-  const habilitiesContext = useContext(HabilitiesContext)
+  const habilitiesContext = useContext(HabilitiesContext);
 
   return(
     <div className="Habilidad">
