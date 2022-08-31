@@ -1,10 +1,9 @@
 import React, { useState, createContext } from 'react';
 import './Cuerpo.css';
 
-import Canvas from '../Canvas/Canvas'
-import Cronometro from '../Cronometro/Cronometro'
-import Convertidor from '../Convertidor/Convertidor'
-import GeneradorHabilidad from '../GeneradorHabilidad/GeneradorHabilidad';
+import Canvas from '../../Canvas/Canvas'
+import GeneradorHabilidad from '../../GeneradorHabilidad/GeneradorHabilidad';
+import Itools from '../Itools/Itools';
 
 export const HabilitiesContext = createContext([]);
 
@@ -12,10 +11,7 @@ function Cuerpo() {
   const defaultNumberHabilities = 3;
   const defaultHour = 0.0;
   let localStorageHabilities = JSON.parse(localStorage.getItem('localStorageHabilities'));
-  const defaultHability = {
-    name: 'name of hability',
-    hours: defaultHour
-  };
+  const defaultHability = {name: '', hours: defaultHour};
   const initialHabilitiesData = Array(defaultNumberHabilities).fill(defaultHability);
 
   let [habilitiesData, setHabilitiesData] = useState(localStorageHabilities ?? initialHabilitiesData);
@@ -52,8 +48,7 @@ function Cuerpo() {
     <div className="Cuerpo">
       <Canvas/>
       <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} UpdateHabilityData={UpdateHabilityData}/>
-      <Cronometro/>
-      <Convertidor/>
+      <Itools/>
     </div>
     {/* {localStorage.clear()} */}
     </HabilitiesContext.Provider>

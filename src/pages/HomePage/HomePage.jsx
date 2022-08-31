@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 
-import Cuerpo from '../../components/Cuerpo/Cuerpo';
+import Cuerpo from '../../components/containers/Cuerpo/Cuerpo';
 import Footer from '../../components/Footer/Footer'
 
 const HomePage = () => (

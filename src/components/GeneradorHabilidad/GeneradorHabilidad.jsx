@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './GeneradorHabilidad.css';
 
 import Habilidad from '../Habilidad/Habilidad';
-import { HabilitiesContext } from '../Cuerpo/Cuerpo'
+import { HabilitiesContext } from '../containers/Cuerpo/Cuerpo';
 
 import { FaPlus, FaMinus } from "react-icons/fa";
 

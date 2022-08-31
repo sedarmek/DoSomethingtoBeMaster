@@ -1,0 +1,26 @@
+.Itools {
+    box-sizing: border-box;
+    height: 15rem;
+    width: 12rem;
+    margin: 0rem;
+    padding-top: 2.5rem;
+    padding-left: 2.5rem;
+    position:absolute;
+    top: 10vh;
+    right: 0rem;
+    overflow: hidden;
+}
+.itools_button{
+    color: white;
+    height: 2rem;
+    width: auto;
+    margin: 0rem;
+    padding: 0.2rem;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    background-color: #36425a;
+    border: none;
+    border-radius: 0.2rem;
+    z-index: 10;
+}

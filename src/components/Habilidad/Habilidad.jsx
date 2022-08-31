@@ -3,7 +3,7 @@ import { React, useContext } from 'react';
 
 import { FaPenSquare } from "react-icons/fa";
 
-import { HabilitiesContext } from '../Cuerpo/Cuerpo'
+import { HabilitiesContext } from '../containers/Cuerpo/Cuerpo'
 
 function Habilidad(info) {
 
