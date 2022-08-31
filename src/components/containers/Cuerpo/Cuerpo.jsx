@@ -50,7 +50,6 @@ function Cuerpo() {
       <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} UpdateHabilityData={UpdateHabilityData}/>
       <Itools/>
     </div>
-    {/* {localStorage.clear()} */}
     </HabilitiesContext.Provider>
   );
 }

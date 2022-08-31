@@ -7,29 +7,30 @@ import Convertidor from '../../Convertidor/Convertidor';
 const Itools = () => {
   
   let [isItoolsShown,setIsItoolsShown] = useState(false);
-  function toggleShowItools(){
+  function toggleIsItoolsShown(){
     if(isItoolsShown){
       setIsItoolsShown(false);
     }else{
       setIsItoolsShown(true);
     }
   }
-  function printTool(switcher){
+
+  function printTools(switcher){
     if(switcher){
-      return (<div><Cronometro/><Convertidor/></div>)
+      return (<div className='containerItools'><Cronometro/><Convertidor/></div>)
     }else{return null;}
   }
   function switchToolButton(switcher){
     if(switcher){
-      return <button className='itools_button' onClick={toggleShowItools}>Close</button>
+      return <button className='itools_button' onClick={toggleIsItoolsShown}>Close</button>
     }else{
-      return <button className='itools_button' onClick={toggleShowItools}>OpenTools</button>
+      return <button className='itools_button' onClick={toggleIsItoolsShown}>OpenTools</button>
     }
   }
   return(
     <div className="Itools">
       {switchToolButton(isItoolsShown)}
-      {printTool(isItoolsShown)}
+      {printTools(isItoolsShown)}
     </div>
 );}
 
