@@ -9,6 +9,9 @@ const Itools = () => {
   let [isContainerItoolsShown,setIsContainerItoolsShown] = useState(false);
   let [isItoolShown, setIsItoolsShown] = useState({cronometro: false, convertidor: false, nota: false});
 
+  let dataNoteInStorage = window.localStorage.getItem('dataNoteInStorage') ?? '';
+  let [dataNoteState, setDataNoteState] = useState(dataNoteInStorage);
+
   function switchToRenderComponent(switcher, componentTrue, componentFalse){
     if(switcher){
       return componentTrue;
@@ -17,7 +20,7 @@ const Itools = () => {
     }
   }
 
-  function toggleStateBoolean(dataState, setFunctionState, parameterOfObjectWithSwitch){
+  function toggleStateBoolean(dataState, setFunctionState, optinalParameterOfObjectWithBoolean){
     if(typeof dataState === 'boolean'){
         if(dataState){
             setFunctionState(dataState=false);
@@ -25,20 +28,25 @@ const Itools = () => {
             setFunctionState(dataState=true);
           }
     }else if(typeof dataState === 'object'){
-        if(dataState[parameterOfObjectWithSwitch]){
+        if(dataState[optinalParameterOfObjectWithBoolean]){
             setFunctionState(()=>{
                 let currentData = {...dataState}
-                currentData[parameterOfObjectWithSwitch]=false;
+                currentData[optinalParameterOfObjectWithBoolean]=false;
                 return currentData;
             });
           }else{
             setFunctionState(()=>{
                 let currentData = {...dataState}
-                currentData[parameterOfObjectWithSwitch]=true;
+                currentData[optinalParameterOfObjectWithBoolean]=true;
                 return currentData;
             });
           }
     }
+  }
+
+  function updateNoteData({target}){
+    window.localStorage.setItem('dataNoteInStorage', target.value);
+    setDataNoteState(target.value);
   }
   return(
     <div className="Itools">
@@ -71,9 +79,10 @@ const Itools = () => {
             onClick={()=>toggleStateBoolean(isItoolShown, setIsItoolsShown, 'nota')}>
                 Nota
             </button>
-            {switchToRenderComponent(isItoolShown.nota, <textarea className='Itools_nota' placeholder='escribe aqui' autoComplete='off'/>)}
+            {switchToRenderComponent(isItoolShown.nota, <textarea className='Itools_nota' placeholder='escribe aqui' onChange={updateNoteData} value={dataNoteState}/>)}
         </div>
       </div>)}
+      {console.log('In render:',{dataNoteInStorage})}
     </div>
 );}
 
