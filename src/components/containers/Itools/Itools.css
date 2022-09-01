@@ -1,14 +1,12 @@
 .Itools {
     box-sizing: border-box;
-    height: 15rem;
-    width: 12rem;
+    min-height: 15rem;
+    min-width: 12rem;
     margin: 0rem;
     padding-top: 2.5rem;
-    padding-left: 2.5rem;
-    position:absolute;
+    position: absolute;
     top: 10vh;
     right: 0rem;
-    overflow: hidden;
 }
 .itools_button{
     color: white;
@@ -25,6 +23,31 @@
     z-index: 10;
 }
 .containerItools{
-    padding: 0.5rem;
-    background-color: #36425a;
+    box-sizing: border-box;
+    margin: 0rem;
+    padding: 0.2rem;
+    height: auto;
+    width: auto;
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
+    background-color: #242f44;
+}
+.container_Itool{
+    height: auto;
+    margin: 0rem;
+    padding: 0rem;
+}
+.container_Itool_button{
+    height: auto;
+    width: 90%;
+    margin: 0rem;
+    padding: 0.15rem;
+    border: none;
+    background-color: #182336;
+    color: white;
+}
+.Itools_nota{
+    color: white;
+    height: 5rem;
+    width: 80%;
+    background-color: #233557;
 }

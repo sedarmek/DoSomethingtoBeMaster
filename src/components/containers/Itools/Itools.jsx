@@ -6,31 +6,74 @@ import Convertidor from '../../Convertidor/Convertidor';
 
 const Itools = () => {
   
-  let [isItoolsShown,setIsItoolsShown] = useState(false);
-  function toggleIsItoolsShown(){
-    if(isItoolsShown){
-      setIsItoolsShown(false);
+  let [isContainerItoolsShown,setIsContainerItoolsShown] = useState(false);
+  let [isItoolShown, setIsItoolsShown] = useState({cronometro: false, convertidor: false, nota: false});
+
+  function switchToRenderComponent(switcher, componentTrue, componentFalse){
+    if(switcher){
+      return componentTrue;
     }else{
-      setIsItoolsShown(true);
+        return componentFalse;
     }
   }
 
-  function printTools(switcher){
-    if(switcher){
-      return (<div className='containerItools'><Cronometro/><Convertidor/></div>)
-    }else{return null;}
-  }
-  function switchToolButton(switcher){
-    if(switcher){
-      return <button className='itools_button' onClick={toggleIsItoolsShown}>Close</button>
-    }else{
-      return <button className='itools_button' onClick={toggleIsItoolsShown}>OpenTools</button>
+  function toggleStateBoolean(dataState, setFunctionState, parameterOfObjectWithSwitch){
+    if(typeof dataState === 'boolean'){
+        if(dataState){
+            setFunctionState(dataState=false);
+          }else{
+            setFunctionState(dataState=true);
+          }
+    }else if(typeof dataState === 'object'){
+        if(dataState[parameterOfObjectWithSwitch]){
+            setFunctionState(()=>{
+                let currentData = {...dataState}
+                currentData[parameterOfObjectWithSwitch]=false;
+                return currentData;
+            });
+          }else{
+            setFunctionState(()=>{
+                let currentData = {...dataState}
+                currentData[parameterOfObjectWithSwitch]=true;
+                return currentData;
+            });
+          }
     }
   }
   return(
     <div className="Itools">
-      {switchToolButton(isItoolsShown)}
-      {printTools(isItoolsShown)}
+              {switchToRenderComponent(isContainerItoolsShown, 
+              <button className='itools_button' onClick={()=> toggleStateBoolean(isContainerItoolsShown, setIsContainerItoolsShown)}>
+                Close
+              </button>, 
+              <button className='itools_button' onClick={()=>toggleStateBoolean(isContainerItoolsShown, setIsContainerItoolsShown)}>
+                OpenTools
+              </button>)}
+      
+      {switchToRenderComponent(isContainerItoolsShown, 
+      <div className='containerItools'>
+        <div className='container_Itool'>
+            <button className='container_Itool_button' 
+            onClick={()=>toggleStateBoolean(isItoolShown, setIsItoolsShown, 'cronometro')}>
+                Cronometro
+            </button>
+            {switchToRenderComponent(isItoolShown.cronometro, <Cronometro/>)}
+        </div>
+        <div className='container_Itool'>
+            <button className='container_Itool_button' 
+            onClick={()=>toggleStateBoolean(isItoolShown, setIsItoolsShown, 'convertidor')}>
+                Convertidor
+            </button>
+            {switchToRenderComponent(isItoolShown.convertidor, <Convertidor/>)}
+        </div>
+        <div className='container_Itool'>
+            <button className='container_Itool_button' 
+            onClick={()=>toggleStateBoolean(isItoolShown, setIsItoolsShown, 'nota')}>
+                Nota
+            </button>
+            {switchToRenderComponent(isItoolShown.nota, <textarea className='Itools_nota' placeholder='escribe aqui' autoComplete='off'/>)}
+        </div>
+      </div>)}
     </div>
 );}
 

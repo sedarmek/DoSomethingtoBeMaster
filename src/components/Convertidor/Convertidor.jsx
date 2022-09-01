@@ -13,9 +13,9 @@ const Convertidor = () => {
   }
   return(
     <div className="Convertidor">
-      <p>Convertidor</p>
+      <p>minutos=&#62;horas</p>
       <input type="number" className='convertidor_minutos' placeholder='minutos' onChange={updateTime}/>
-      <p className="convertidor_horas">={convertMinutesToHours(minutes)}</p>
+      <p className="convertidor_horas">=&#62;{convertMinutesToHours(minutes)}</p>
     </div>
 );}
 
