@@ -4,14 +4,15 @@ import './Cuerpo.css';
 import Canvas from '../../Canvas/Canvas'
 import GeneradorHabilidad from '../../GeneradorHabilidad/GeneradorHabilidad';
 import Itools from '../Itools/Itools';
+import { Hability } from '../../../models/hability.class';
 
 export const HabilitiesContext = createContext([]);
 
 function Cuerpo() {
   const defaultNumberHabilities = 3;
-  const defaultHour = 0.0;
+  const defaultHour = 0;
   let localStorageHabilities = JSON.parse(localStorage.getItem('localStorageHabilities'));
-  const defaultHability = {name: '', hours: defaultHour};
+  const defaultHability = new Hability('', defaultHour);
   const initialHabilitiesData = Array(defaultNumberHabilities).fill(defaultHability);
 
   let [habilitiesData, setHabilitiesData] = useState(localStorageHabilities ?? initialHabilitiesData);

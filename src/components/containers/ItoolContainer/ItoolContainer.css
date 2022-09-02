@@ -1,0 +1,22 @@
+.ItoolContainer {
+    height: auto;
+    width: auto;
+    margin: 0rem;
+    padding: 0rem;
+}
+.container_Itool_button{
+    height: auto;
+    width: 90%;
+    margin: 0rem;
+    padding: 0.15rem;
+    border: none;
+    background-color: #182336;
+    color: white;
+}
+.Itools_nota{
+    color: white;
+    height: 5rem;
+    width: 80%;
+    background-color: #233557;
+    resize:vertical;
+}

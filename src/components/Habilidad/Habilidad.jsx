@@ -1,8 +1,6 @@
 import './Habilidad.css';
 import { React, useContext } from 'react';
 
-import { FaPenSquare } from "react-icons/fa";
-
 import { HabilitiesContext } from '../containers/Cuerpo/Cuerpo'
 
 function Habilidad(info) {
@@ -28,7 +26,6 @@ function Habilidad(info) {
 
   return(
     <div className="Habilidad">
-      <FaPenSquare className='icono_pen'></FaPenSquare>
       <input type="text" className="input_nombreHabilidad" placeholder='Escribe la habilidad' onChange={sendHabilityData} value={habilitiesContext[info.keyToChild].name}/>
       <input type="number" className="input_horasHabilidad" placeholder='horas' onChange={sendHabilityData} max={250} id="input_hourHabilidad"/>
       <p>{habilitiesContext[info.keyToChild].hours}/1000 horas</p>

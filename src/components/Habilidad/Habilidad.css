@@ -20,9 +20,6 @@
     align-items: center;
     gap: 0.3rem;
 }
-.icono_pen{
-    font-size: 1.5rem;
-}
 .input_nombreHabilidad{
     display: inline-block;
     box-sizing: border-box;

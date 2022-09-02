@@ -17,7 +17,11 @@ function GeneradorHabilidad(info) {
       info.DecrementarHabilidades();
     }
   }
-  
+
+  function getHabilityData(data){
+    info.UpdateHabilityData(data);
+  }
+
   function printHabilidades(horas){
     let habilidades = horas;
     return (
@@ -31,9 +35,6 @@ function GeneradorHabilidad(info) {
     )
   }
 
-  function getHabilityData(data){
-    info.UpdateHabilityData(data);
-  }
   const habilitiesContext = useContext(HabilitiesContext);
   return (
   <div className="GeneradorHabilidad" id='prueba'>
