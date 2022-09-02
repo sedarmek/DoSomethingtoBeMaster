@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
 import './Itools.css';
+import { useStateBoolean } from '../../../hooks/useStateBoolean';
 
 import ItoolContainer from '../ItoolContainer/ItoolContainer';
 import Cronometro from '../../Cronometro/Cronometro';
@@ -9,30 +10,20 @@ import QuicklyNote from '../../QuicklyNote/QuicklyNote';
 
 const Itools = () => {
   
-  let [isContainerItoolsShown,setIsContainerItoolsShown] = useState(false);
+    let [{toggleStateBoolean, renderSwitchComponent}, isContainerItoolsShown] = useStateBoolean();
 
-  function renderSwitchComponent(switcher, componentTrue, componentFalse){
-    if(switcher){
-      return componentTrue;
-    }else{
-        return componentFalse;
-    }
-  }
-
-  function toggleStateBoolean(dataState, setFunctionState){
-            setFunctionState(!dataState);
-  }
+  
 
   return(
     <div className="Itools">
-        <button className='itools_button' onClick={()=> toggleStateBoolean(isContainerItoolsShown, setIsContainerItoolsShown)}>
+        <button className='itools_button' onClick={()=> toggleStateBoolean()}>
             {isContainerItoolsShown 
                 ? <FaArrowCircleRight className='Itools_icon'/> 
                 : <FaArrowCircleLeft  className='Itools_icon'/>
             }
         </button>
       
-    {renderSwitchComponent(isContainerItoolsShown, 
+    {renderSwitchComponent(
       <div className='containerItools'>
         <ItoolContainer title='Cronometro'><Cronometro/></ItoolContainer>
         <ItoolContainer title='Convertidor'><Convertidor/></ItoolContainer>

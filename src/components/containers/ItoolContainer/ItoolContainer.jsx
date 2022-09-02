@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ItoolContainer.css';
+
+import { useStateBoolean } from '../../../hooks/useStateBoolean';
 
 const ItoolContainer = (props) => {
     
-    let [isShownComponent, setIsShownComponent] = useState(false);
+    let [{toggleStateBoolean, renderSwitchComponent}] = useStateBoolean();
 
-    function toggleStateBoolean(stateReference, setFunction){
-        setFunction(!stateReference);
-    }
-    function renderSwitchComponent(handlerBoolean, componentTrue, componentFalse){
-        return handlerBoolean
-        ? componentTrue
-        : componentFalse;
-    }
     return(
         <div className="ItoolContainer">
-            <button className='container_Itool_button' onClick={()=>toggleStateBoolean(isShownComponent, setIsShownComponent)}>
+            <button className='container_Itool_button' onClick={()=>toggleStateBoolean()}>
             {props.title}
             </button>
-            {renderSwitchComponent(isShownComponent, props.children)}
+            {renderSwitchComponent(props.children)}
         </div>
 );}
 
