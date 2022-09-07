@@ -1,12 +1,12 @@
 import React from 'react';
 import './HomePage.css';
 
-import Cuerpo from '../../components/containers/Cuerpo/Cuerpo';
+import HomeBody from '../../components/containers/HomeBody/HomeBody';
 import Footer from '../../components/Footer/Footer'
 
 const HomePage = () => (
   <div className="HomePage">
-    <Cuerpo/>
+    <HomeBody/>
     <Footer/>
   </div>
 );

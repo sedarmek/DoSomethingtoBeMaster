@@ -1,1 +1,11 @@
-.QuicklyNote {}
+.QuicklyNote {
+    margin: 0rem;
+    padding: 0rem;
+}
+.Itools_nota{
+    color: white;
+    height: 5rem;
+    width: 80%;
+    background-color: #29313f;
+    resize:vertical;
+}

@@ -1,7 +1,7 @@
 import './Habilidad.css';
 import { React, useContext } from 'react';
 
-import { HabilitiesContext } from '../containers/Cuerpo/Cuerpo'
+import { HabilitiesContext } from '../containers/HomeBody/HomeBody'
 
 function Habilidad(info) {
 

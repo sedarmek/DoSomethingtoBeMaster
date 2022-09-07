@@ -3,6 +3,8 @@
     box-sizing: border-box;
     min-height: 10vh;
     width: auto;
+    margin: 0rem;
+    padding: 0rem;
     background-color: #1d222b;
 }
 .IconFooter{

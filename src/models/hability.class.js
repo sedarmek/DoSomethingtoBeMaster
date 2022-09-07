@@ -12,7 +12,5 @@ export class Hability {
 
 Hability.propTypes = {
     name: PropTypes.string,
-    hours: PropTypes.number,
+    hours: PropTypes.number
 };
-
-Hability.defaultProps = {};

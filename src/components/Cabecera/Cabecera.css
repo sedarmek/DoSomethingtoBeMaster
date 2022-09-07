@@ -3,6 +3,8 @@
     box-sizing: border-box;
     min-height: 10vh;
     width: auto;
+    margin: 0;
+    padding: 0;
     background-color: #1d222b;
 }
 .link{

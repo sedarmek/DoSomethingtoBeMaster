@@ -7,6 +7,7 @@ const Cabecera = () => (
   <div className="Cabecera">
     <nav>
       <NavLink to="DoSomethingtoBeMaster" className="link">Home</NavLink>
+      <NavLink to="notes" className="link">Notes</NavLink>
       <NavLink to="about" className="link">About</NavLink>
     </nav>
   </div>

@@ -1,0 +1,10 @@
+.NoteBody {
+    min-height: 80vh;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+.icon-addNote{
+  color: #305930;
+  font-size: 1.5rem;
+}

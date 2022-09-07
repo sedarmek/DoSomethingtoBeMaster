@@ -1,7 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 .Habilidad {
     text-align: left;
     color: white;
@@ -11,9 +7,9 @@
     margin: 0.5rem auto 0 auto;
     height: 2rem;
     width: 23rem;
-    border: 0.2rem solid white;
     border-radius: 0.5rem;
-    background-color: rgb(30, 34, 45);
+    background-color: #1e222d;
+    box-shadow: 0.1rem 0.1rem 0.25rem #1d202a;
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
@@ -34,11 +30,11 @@
     display: inline-block;
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0.1rem;
     width: 3rem;
-    border: 0.15rem solid #ccc;
     border-radius: 0.5rem;
-    background-color: transparent;
+    border: none;
+    background-color: #232938;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

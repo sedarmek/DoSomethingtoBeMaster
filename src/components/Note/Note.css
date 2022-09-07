@@ -1,0 +1,21 @@
+.Note {
+  color: #bcc5fa;
+  box-shadow: 0.15rem 0.15rem 0.5rem #1f212c;
+  border: red;
+}
+.td{
+  box-sizing: border-box;
+  min-height: 2rem;
+  min-width: 4rem;
+  max-width: 18rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  background-color: #3e435b;
+  overflow: hidden;
+}
+.icon-trash{
+  color: #5c3333;
+  font-size: 1.2rem;
+  margin: 0rem;
+  padding: 0rem;
+}

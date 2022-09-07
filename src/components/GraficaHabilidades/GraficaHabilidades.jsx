@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { HabilitiesContext } from '../containers/Cuerpo/Cuerpo'
+import { HabilitiesContext } from '../containers/HomeBody/HomeBody'
 import {
   Chart as ChartJS,
   RadialLinearScale,
