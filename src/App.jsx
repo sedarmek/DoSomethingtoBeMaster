@@ -17,8 +17,8 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/DoSomethingtoBeMaster' element={<HomePage/>}/>
-        <Route path='/notes' element={<NotePage/>}/>
-        <Route path='/about' element={<AboutPage/>}/>
+        <Route path='/DoSomethingtoBeMaster/notes' element={<NotePage/>}/>
+        <Route path='/DoSomethingtoBeMaster/about' element={<AboutPage/>}/>
         <Route path ='*' element={<NotFoundPage/>}/>
       </Routes>
     </BrowserRouter>
