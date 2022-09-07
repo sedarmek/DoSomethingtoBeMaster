@@ -6,22 +6,30 @@ import HomePage from './pages/HomePage/HomePage';
 import NotePage from './pages/NotePage/NotePage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/AboutPage/AboutPage';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter basename='DoSomethingtoBeMaster'> */}
+      <Router>
         <Cabecera/>
-      <Routes>
+        <Routes>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/DoSomethingtoBeMaster' element={<HomePage/>}/>
-        <Route path='/DoSomethingtoBeMaster/notes' element={<NotePage/>}/>
-        <Route path='/DoSomethingtoBeMaster/about' element={<AboutPage/>}/>
+        <Route path='/notes' element={<NotePage/>}/>
+        <Route path='/about' element={<AboutPage/>}/>
         <Route path ='*' element={<NotFoundPage/>}/>
       </Routes>
-    </BrowserRouter>
+      {/* <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/notes' element={<NotePage/>}/>
+        <Route path='/about' element={<AboutPage/>}/>
+        <Route path ='*' element={<NotFoundPage/>}/>
+      </Routes>
+    </BrowserRouter> */}
+    </Router>
     </div>
   );
 }
