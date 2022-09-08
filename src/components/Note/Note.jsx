@@ -1,38 +1,24 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import './Note.css';
 
 import { FaTrashAlt } from 'react-icons/fa'
 
 import { NotesContext } from '../containers/NoteBody/NoteBody'
 
-const Note = (props) => {
-  let [noteShown, setNoteShown] = useState(false);
+const Note = ({ indexItem, deleteNote }) => {
 
-  function toggleBoolean(){
-      setNoteShown(!noteShown);
-  }
-
-  // function sendNotesData(event){
-  //   const data = {
-  //     index: props.indexItem,
-  //     title: event.target.name,
-  //     value: event.target.value
-  //   }
-  //   props.updateNotesData(data);
-  //   console.log(data)
-  // }
-  function deleteNote(){
-    let index = props.indexItem
-    props.deleteNote(index)
+  function sendNoteToDelete(){
+    let index = indexItem
+    console.log(indexItem)
+    deleteNote(index)
   }
   const notesContext = useContext(NotesContext)
     return(
       <tr className="Note">
-        {/* <input type='text' name='title' value={notesContext[info.indexItem].title} onChange={sendNotesData} onClick={toggleBoolean}/> */}
-        <td className='td' onClick={toggleBoolean}>{notesContext[props.indexItem].title}</td>
-        <td className='td'>{notesContext[props.indexItem].description}</td>
-        <td className='td'>{notesContext[props.indexItem].text}</td>
-        <td onClick={deleteNote}><FaTrashAlt className='icon-trash'/></td>
+        <td className='td'>{notesContext[indexItem].title}</td>
+        <td className='td'>{notesContext[indexItem].description}</td>
+        <td className='td'>{notesContext[indexItem].text}</td>
+        <td onClick={sendNoteToDelete}><FaTrashAlt className='icon-trash'/></td>
       </tr>
 );}
 

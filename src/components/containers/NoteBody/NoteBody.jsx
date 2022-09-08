@@ -5,13 +5,17 @@ import { FaPlusSquare } from 'react-icons/fa'
 
 import { Note } from '../../../models/note.class';
 import GeneradorNotes from '../../GeneradorNotes/GeneradorNotes'
+import NoteForm from '../../pures/forms/NoteForm/NoteForm';
+
+import { useStateBoolean } from '../../../hooks/useStateBoolean';
 
 export const NotesContext = createContext([])
 
 const NoteBody = () => {
-    let defaultNote = new Note('title', 'description', 'loremsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss');
+    let defaultNote = new Note('title', 'description', 'texto');
     let initialNotes = [defaultNote];
     let [notesData, setNotesData] = useState(initialNotes);
+    let [{renderSwitchComponent}, , {switchStateToFalse, switchStateToTrue}] = useStateBoolean();
 
     function updateNotesData(newData){
       setNotesData(()=>{
@@ -20,11 +24,9 @@ const NoteBody = () => {
         return currentNotesData;
       });
     }
-    function addNote(){
-      setNotesData(()=>{
-        let currentNotesData = [...notesData, new Note('title', 'description', 'default value')]
-        return currentNotesData
-      })
+    function addNote(newNote){
+      let currentNotesData = [...notesData, newNote]
+      setNotesData(currentNotesData)
     }
     function deleteNote(noteIndex){
         setNotesData(()=>{let currentNotesData = [...notesData]
@@ -32,7 +34,9 @@ const NoteBody = () => {
         return currentNotesData
       })
     }
-
+    function hideNoteForm(){
+      switchStateToFalse()
+    }
     return(
       <NotesContext.Provider value={notesData}>
         <div className="NoteBody">
@@ -47,10 +51,11 @@ const NoteBody = () => {
               <GeneradorNotes updateNotesData={updateNotesData} deleteNote={deleteNote}/>
             <tfoot>
               <tr>
-                <td onClick={addNote}><FaPlusSquare className='icon-addNote'/></td>
+                <td onClick={switchStateToTrue}><FaPlusSquare className='icon-addNote'/></td>
               </tr>
             </tfoot>
           </table>
+          {renderSwitchComponent(<NoteForm addNote={addNote} hideNoteForm={hideNoteForm}/>)}
         </div>
       </NotesContext.Provider>
 );}

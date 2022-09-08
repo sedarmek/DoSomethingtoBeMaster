@@ -11,8 +11,8 @@ const GeneradorNotes = (props) => {
     props.updateNotesData(notesData)
   }
 
-  function deleteNote(){
-    props.deleteNote()
+  function deleteNote(index){
+    props.deleteNote(index)
   }
 
   function printNotes(notesData){

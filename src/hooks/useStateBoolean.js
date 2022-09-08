@@ -12,5 +12,11 @@ export function useStateBoolean() {
         ? componentTrue
         : componentFalse;
     }
-    return [{toggleStateBoolean, renderSwitchComponent}, isShownComponent];
+    function switchStateToFalse(){
+      setIsShownComponent(false)
+    }
+    function switchStateToTrue(){
+      setIsShownComponent(true)
+    }
+    return [{toggleStateBoolean, renderSwitchComponent}, isShownComponent, {switchStateToFalse, switchStateToTrue}];
 }
