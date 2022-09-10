@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DoSomethingtoBeMaster/static/css/main.81fe3e4f.css",
-    "main.js": "/DoSomethingtoBeMaster/static/js/main.00dffcc1.js",
+    "main.js": "/DoSomethingtoBeMaster/static/js/main.4411d4ff.js",
     "static/js/787.77e271b1.chunk.js": "/DoSomethingtoBeMaster/static/js/787.77e271b1.chunk.js",
     "index.html": "/DoSomethingtoBeMaster/index.html",
     "main.81fe3e4f.css.map": "/DoSomethingtoBeMaster/static/css/main.81fe3e4f.css.map",
-    "main.00dffcc1.js.map": "/DoSomethingtoBeMaster/static/js/main.00dffcc1.js.map",
+    "main.4411d4ff.js.map": "/DoSomethingtoBeMaster/static/js/main.4411d4ff.js.map",
     "787.77e271b1.chunk.js.map": "/DoSomethingtoBeMaster/static/js/787.77e271b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.81fe3e4f.css",
-    "static/js/main.00dffcc1.js"
+    "static/js/main.4411d4ff.js"
   ]
 }
