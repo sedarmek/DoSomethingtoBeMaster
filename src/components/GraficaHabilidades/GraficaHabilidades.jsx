@@ -36,7 +36,7 @@ function GraficaHabilidades() {
         data: horasLimiteHabilidad,
         fill: true,
         showLine: false,
-        backgroundColor: 'rgba(99, 255, 99, 0.1)',
+        backgroundColor: 'rgba(50, 90, 150, 0.4)',
         borderColor: 'rgba(99, 99, 255, 1)',
         borderWidth: 0.3,
         pointStyle: 'circle',

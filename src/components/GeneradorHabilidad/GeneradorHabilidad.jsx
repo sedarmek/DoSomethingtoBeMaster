@@ -4,7 +4,7 @@ import './GeneradorHabilidad.css';
 import Habilidad from '../Habilidad/Habilidad';
 import { HabilitiesContext } from '../containers/HomeBody/HomeBody';
 
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 
 function GeneradorHabilidad(info) {
   
@@ -12,12 +12,6 @@ function GeneradorHabilidad(info) {
   function incrementHabilidades(){
     info.IncrementarHabilidades();
   }
-  function decrementHabilidades(){
-    if(habilitiesContext.length > 1) {
-      info.DecrementarHabilidades();
-    }
-  }
-
   function getHabilityData(data){
     info.UpdateHabilityData(data);
   }
@@ -25,13 +19,9 @@ function GeneradorHabilidad(info) {
   function printHabilidades(horas){
     let habilidades = horas;
     return (
-          <div>
-            {
             habilidades.map((hour, index) => {
-              return <Habilidad key={index} keyToChild={index} getHabilityData={getHabilityData}></Habilidad>
+              return <Habilidad key={index} keyToChild={index} getHabilityData={getHabilityData} deleteHability={info.deleteHability}></Habilidad>
               })
-            }
-          </div>
     )
   }
 
@@ -39,7 +29,6 @@ function GeneradorHabilidad(info) {
   return (
   <div className="GeneradorHabilidad" id='prueba'>
     {printHabilidades(habilitiesContext.map((value)=>value.hours))}
-    <button className="GeneradorHabilidad_button" onClick={decrementHabilidades}><FaMinus/></button>
     <button className="GeneradorHabilidad_button" onClick={incrementHabilidades}><FaPlus/></button>
   </div>
   );

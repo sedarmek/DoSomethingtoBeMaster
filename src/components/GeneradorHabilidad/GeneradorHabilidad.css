@@ -1,9 +1,13 @@
 .GeneradorHabilidad {
     text-align: left;
-    margin: 0.1rem auto 0.1rem auto;
+    display: grid;
+    margin: 0.4rem auto 0 auto;
     padding: 0;
     height: auto;
-    width: 25rem;
+    width: 21rem;
+    justify-content: center;
+    align-content: center;
+    gap: 0.3rem;
 }
 .GeneradorHabilidad_button{
     color: #ccc;
@@ -11,7 +15,7 @@
     min-width: 2rem;
     margin: 0;
     padding: 0.15rem;
-    border: 0.15rem solid #ccc;
     border-radius: 0.5rem;
-    background-color: rgb(47, 47, 97);
+    border: none;
+    background-color: #1a1a33;
 }

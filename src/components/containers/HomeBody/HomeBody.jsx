@@ -9,23 +9,23 @@ import { Hability } from '../../../models/hability.class';
 export const HabilitiesContext = createContext([]);
 
 function HomeBody() {
-  const defaultNumberHabilities = 3;
   let localStorageHabilities = JSON.parse(localStorage.getItem('localStorageHabilities'));
-  const defaultHability = new Hability('', 0);
-  const initialHabilitiesData = Array(defaultNumberHabilities).fill(defaultHability);
+  const initialHabilitiesData = [new Hability('', 0),new Hability('', 0),new Hability('', 0)];
 
   let [habilitiesData, setHabilitiesData] = useState(localStorageHabilities ?? initialHabilitiesData);
 
   function incrementarHabilidades(){
     setHabilitiesData(()=>{
-      saveInLocalStorage('localStorageHabilities', [...habilitiesData, defaultHability]);
-      return [...habilitiesData, defaultHability];
+      saveInLocalStorage('localStorageHabilities', [...habilitiesData, new Hability('', 0)]);
+      return [...habilitiesData, new Hability('', 0)];
     });
   }
-  function decrementarHabilidades(){
+  function deleteHability(index){
     setHabilitiesData(()=>{
-      saveInLocalStorage('localStorageHabilities', habilitiesData.slice(0, habilitiesData.length-1));
-      return habilitiesData.slice(0, habilitiesData.length-1)
+      let currentHabilitiesData = [...habilitiesData]
+      currentHabilitiesData.splice(index, 1)
+      saveInLocalStorage('localStorageHabilities', currentHabilitiesData)
+      return currentHabilitiesData
     })
   }
 
@@ -33,7 +33,7 @@ function HomeBody() {
   function UpdateHabilityData(data){
     setHabilitiesData(()=>{
       let currentHabilitiesData = [...habilitiesData]
-      currentHabilitiesData[data.index].hours = Number(data.hours);
+      currentHabilitiesData[data.index].hours = data.hours;
       currentHabilitiesData[data.index].name = data.name;
       saveInLocalStorage('localStorageHabilities', currentHabilitiesData);
       return currentHabilitiesData;
@@ -47,9 +47,10 @@ function HomeBody() {
     <HabilitiesContext.Provider value={habilitiesData}>
     <div className="HomeBody">
       <Canvas/>
-      <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} DecrementarHabilidades={decrementarHabilidades} UpdateHabilityData={UpdateHabilityData}/>
+      <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} UpdateHabilityData={UpdateHabilityData} deleteHability={deleteHability}/>
       <Itools/>
     </div>
+    {console.log(localStorageHabilities)}
     </HabilitiesContext.Provider>
   );
 }

@@ -1,7 +1,7 @@
 .Itools {
     box-sizing: border-box;
-    min-height: 15rem;
-    width: 12rem;
+    min-height: auto;
+    width: auto;
     margin: 0rem;
     padding-top: 2.5rem;
     position: absolute;
@@ -30,7 +30,7 @@
     margin: 0rem;
     padding: 0rem;
     height: auto;
-    width: auto;
+    width: 12rem;
     border-radius: 0.5rem 0rem 0rem 0.5rem;
     background-color: transparent;
 }
