@@ -7,17 +7,19 @@ import { HabilitiesContext } from '../containers/HomeBody/HomeBody'
 function Habilidad(info) {
   
   const habilitiesContext = useContext(HabilitiesContext);
-
+   function valueIsEndedWithPointOrPointAndZeros(value){
+      return  /\.$|\.0*$/.test(value)
+   }
   function sendHabilityData(event){
     if(event.target.name === 'hours_input'){
       let valueReplaced = event.target.value.replace(',', '.')
-      let valueEndedWithPoint = /\.$/.test(valueReplaced)
+      let valueEndedWithPointOrPointAndZero = valueIsEndedWithPointOrPointAndZeros(valueReplaced)
 
       if((!isNaN(Number(valueReplaced)))){
         let data = {
           index: info.keyToChild,
           name: habilitiesContext[info.keyToChild].name,
-          hours: valueEndedWithPoint ? String(valueReplaced) : Number(valueReplaced)
+          hours: valueEndedWithPointOrPointAndZero ? String(valueReplaced) : Number(valueReplaced)
         }
         info.getHabilityData(data);
       }
@@ -34,7 +36,14 @@ function Habilidad(info) {
     info.deleteHability(info.keyToChild)
   }
   useEffect(()=>{
-
+    if(valueIsEndedWithPointOrPointAndZeros(habilitiesContext[info.keyToChild].hours)){
+      let data = {
+        index: info.keyToChild,
+        name: habilitiesContext[info.keyToChild].name,
+        hours: Number(habilitiesContext[info.keyToChild].hours)
+      }
+      info.getHabilityData(data);
+    }
   },[])
   return(
     <div className="Habilidad">
