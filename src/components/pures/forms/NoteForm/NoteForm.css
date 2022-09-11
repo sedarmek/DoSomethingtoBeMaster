@@ -4,7 +4,7 @@
   height: 20rem;
   width: 20rem;
   border-radius: 1rem;
-  background-color: #20203a;
+  background-color: #1e222d;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -24,7 +24,7 @@
   border: none;
   border-radius: 0.2rem;
   box-shadow: 0.1rem 0.1rem 0.5rem #202030;
-  background-color: #303048;
+  background-color: #262c3b;
 }
 
 .NoteForm textarea{
@@ -34,7 +34,7 @@
   border: none;
   border-radius: 0.2rem;
   box-shadow: 0.1rem 0.1rem 0.5rem #202030;
-  background-color: #303048;
+  background-color: #262c3b;
 }
 .NoteForm textarea::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -56,9 +56,15 @@
   border-radius: 0;
   background-color: #38456682;
 }
-.NoteForm button{
+.NoteForm_buttons{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.1rem;
+  grid-template-columns: 1fr 2fr;
+}
+.NoteForm_buttons button{
   color: #c5d1e4;
   border: none;
   border-radius: 0.2rem;
-  background-color: #26264a;
+  background-color: #1a1a33;
 }

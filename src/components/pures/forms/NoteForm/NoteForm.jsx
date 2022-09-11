@@ -21,7 +21,10 @@ const NoteForm = ({ addNote, hideNoteForm }) => {
     <input type="text" name='title' placeholder='write title here' ref={titleRef}/>
     <input type="text" name='description' placeholder='write description here' ref={descriptionRef}/>
     <textarea name='text' placeholder='write note here' ref={textRef}/>
-    <button>listo</button>
+    <div className='NoteForm_buttons'>
+      <button onClick={hideNoteForm}>cancelar</button>
+      <button>listo</button>
+    </div>
   </form>
 )};
 

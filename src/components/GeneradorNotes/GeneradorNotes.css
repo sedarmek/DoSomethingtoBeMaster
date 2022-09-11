@@ -1,5 +1,10 @@
 .GeneradorNotes {
   box-sizing: border-box;
+  /* display: block; */
+  height: auto;
+  width: auto;
   margin: 0;
   padding: 0;
+  /* border: 100px solid red;
+  background-color: red; */
 }

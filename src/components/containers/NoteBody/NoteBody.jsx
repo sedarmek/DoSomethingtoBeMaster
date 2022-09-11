@@ -40,7 +40,7 @@ const NoteBody = () => {
     return(
       <NotesContext.Provider value={notesData}>
         <div className="NoteBody">
-          <table>
+          <table className="noteBody_table">
             <thead>
               <tr>
                 <th>Title</th>
