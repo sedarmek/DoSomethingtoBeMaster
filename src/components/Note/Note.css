@@ -21,7 +21,7 @@
   overflow: hidden;
 }
 .Note :nth-child(2){
-  display: inline-block;
+  /* display: inline-block; */
   width: 8rem;
   overflow: hidden;
 }
