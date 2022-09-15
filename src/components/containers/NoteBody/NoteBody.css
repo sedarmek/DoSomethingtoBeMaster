@@ -4,7 +4,13 @@
     margin: 0;
     padding: 0;
 }
+.noteBody_table{
+  text-align: center;
+  height: auto;
+  width: auto;
+  margin: 0 auto 0 auto;
+}
 .icon-addNote{
-  color: #305930;
+  color: #274527;
   font-size: 1.5rem;
 }

@@ -5,6 +5,7 @@ import './NoteForm.css';
 import { Note } from '../../../../models/note.class'
 
 const NoteForm = ({ addNote, hideNoteForm }) => {
+  
   let titleRef = useRef('')
   let descriptionRef = useRef('')
   let textRef = useRef('')
