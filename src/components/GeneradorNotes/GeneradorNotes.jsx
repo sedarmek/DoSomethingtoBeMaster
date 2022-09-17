@@ -7,28 +7,20 @@ import Note from '../Note/Note';
 
 const GeneradorNotes = (props) => {
 
-  function updateNotesData(notesData){
-    props.updateNotesData(notesData)
-  }
-
-  function deleteNote(index){
-    props.deleteNote(index)
-  }
-
   function printNotes(notesData){
     let notes = notesData;
     return (
             notes.map((note, index)=>{
-              return <Note key={index} indexItem={index} updateNotesData={updateNotesData} deleteNote={deleteNote}/>
+              return <Note key={index} indexItem={index} deleteNote={props.deleteNote} catchIndexToModifyNote={props.catchIndexToModifyNote}/>
             })
     )
     
 }
   const notesContext = useContext(NotesContext)
   return (
-  <tbody className="GeneradorNotes">
+  <div className="GeneradorNotes">
     {printNotes(notesContext)}
-  </tbody>
+  </div>
 );}
 
 export default GeneradorNotes;

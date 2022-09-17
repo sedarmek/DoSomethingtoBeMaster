@@ -1,12 +1,16 @@
 .Note {
   color: #bcc5fa;
   box-shadow: 0.15rem 0.15rem 0.5rem #1f212c;
-  /* display: grid;
+  height: auto;
+  width: 24rem;
+  margin: 0 auto 0.2rem auto;
+  padding: 0;
+  display: grid;
   grid-auto-flow: column;
   gap: 0.1rem;
-  grid-template-columns: 1fr 2fr 3fr 1fr; */
+  grid-template-columns: 2fr 4fr 4fr auto;
 }
-.td{
+.Note p{
   box-sizing: border-box;
   height: 1.7rem;
   width: auto;
@@ -15,24 +19,15 @@
   background-color: #3e435b;
   overflow: hidden;
 }
-.Note :first-child{
-  /* display: inline-block; */
-  width: 5rem;
-  overflow: hidden;
-}
-.Note :nth-child(2){
-  /* display: inline-block; */
-  width: 8rem;
-  overflow: hidden;
-}
-.Note :nth-child(3){
-  display: inline-block;
-  width: 8rem;
-  overflow: hidden;
+.icon-edit{
+  color: #2d552d;
+  font-size: 1.2rem;
+  margin: auto 0 auto 0;
+  padding: 0;
 }
 .icon-trash{
   color: #5c3333;
   font-size: 1.2rem;
-  margin: 0rem;
-  padding: 0rem;
+  margin: auto 0 auto 0;
+  padding: 0;
 }

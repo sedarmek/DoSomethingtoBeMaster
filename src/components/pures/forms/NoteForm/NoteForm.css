@@ -1,41 +1,73 @@
 .NoteForm {
   color: white;
   box-sizing: border-box;
-  height: 20rem;
-  width: 20rem;
+  height: 95vh;
+  width: 95vw;
   border-radius: 1rem;
-  background-color: #1e222d;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0.2rem;
+  background-color: #1e222d;
+  box-shadow: 0 0 1rem black;
   display: grid;
   gap: 0.2rem;
   justify-content: center;
   align-content: center;
-  grid-template-rows: 2rem 3rem 10rem 1.5rem;
-}
-.NoteForm input{
-  color: #c5d1e4;
-  height: auto;
-  width: 15rem;
-  margin: 0;
-  padding: 0.15rem;
-  border: none;
-  border-radius: 0.2rem;
-  box-shadow: 0.1rem 0.1rem 0.5rem #202030;
-  background-color: #262c3b;
+  grid-template-columns: 90%;
+  grid-template-rows: 1fr 2fr 10fr 0.5fr;
 }
 
+.Note_title{
+  color: #c5d1e4;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.Note_title:focus{
+  outline: none;
+}
+
+.Note_description{
+  color: #c5d1e4;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 0.1rem solid #c5d1e4;
+  background-color: transparent;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: 1fr 2fr;
+}
+.Note_properies{
+  border-bottom: 0.1rem solid #c5d1e4;
+}
+.Note_properies select, .Note_properies input{
+  color: inherit;
+  border: none;
+  background-color: #2f2f59;
+}
+.Note_comment{
+  border-bottom: 0.1rem solid #c5d1e4;
+}
 .NoteForm textarea{
   color: #c5d1e4;
+  box-sizing: border-box;
   margin: 0;
   padding: 0.1rem;
   resize: none;
   border: none;
   border-radius: 0.2rem;
   box-shadow: 0.1rem 0.1rem 0.5rem #202030;
-  background-color: #262c3b;
+  background-color: inherit;
+}
+.NoteForm textarea:focus{
+  outline: none;
 }
 .NoteForm textarea::-webkit-scrollbar {
   -webkit-appearance: none;

@@ -1,14 +1,9 @@
 .NoteBody {
-    min-height: 80vh;
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
-.noteBody_table{
-  text-align: center;
-  height: auto;
+  box-sizing: border-box;
+  min-height: 80vh;
   width: auto;
-  margin: 0 auto 0 auto;
+  margin: 0;
+  padding: 0;
 }
 .icon-addNote{
   color: #274527;

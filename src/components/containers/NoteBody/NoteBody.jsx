@@ -10,20 +10,15 @@ import NoteForm from '../../pures/forms/NoteForm/NoteForm';
 import { useStateBoolean } from '../../../hooks/useStateBoolean';
 
 export const NotesContext = createContext([])
+export const IndexToModifyContext = createContext(null);
 
 const NoteBody = () => {
-    let defaultNote = new Note('title', 'description', 'texto');
+    let defaultNote = new Note('title', 'none', '16/09/2022', 'none', 'comment',  'texto');
     let initialNotes = [defaultNote];
     let [notesData, setNotesData] = useState(initialNotes);
     let [{renderSwitchComponent}, , {switchStateToFalse, switchStateToTrue}] = useStateBoolean();
+    let [indexNoteToModify, setIndexNoteToModify] = useState(null);
 
-    function updateNotesData(newData){
-      setNotesData(()=>{
-        let currentNotesData = [...notesData];
-        currentNotesData[newData.index][newData.title] = newData.value;
-        return currentNotesData;
-      });
-    }
     function addNote(newNote){
       let currentNotesData = [...notesData, newNote]
       setNotesData(currentNotesData)
@@ -34,28 +29,33 @@ const NoteBody = () => {
         return currentNotesData
       })
     }
+    //se ejecutara en el form
+    function modifyNote(noteIndex, modifiedData){
+      setNotesData(()=>{
+        let currentNotesData = [...notesData];
+        currentNotesData.splice(noteIndex, 1, modifiedData);
+        return currentNotesData
+      })
+    }
+    function resetIndexNote(){
+      setIndexNoteToModify(null)
+    }
+    function catchIndexToModifyNote(noteIndex){
+      setIndexNoteToModify(noteIndex);
+      switchStateToTrue()
+    }
     function hideNoteForm(){
       switchStateToFalse()
     }
+
     return(
       <NotesContext.Provider value={notesData}>
         <div className="NoteBody">
-          <table className="noteBody_table">
-            <thead className="table_head">
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Text</th>
-              </tr>
-            </thead>
-              <GeneradorNotes updateNotesData={updateNotesData} deleteNote={deleteNote}/>
-            <tfoot>
-              <tr>
-                <td onClick={switchStateToTrue}><FaPlusSquare className='icon-addNote'/></td>
-              </tr>
-            </tfoot>
-          </table>
-          {renderSwitchComponent(<NoteForm addNote={addNote} hideNoteForm={hideNoteForm}/>)}
+          <GeneradorNotes deleteNote={deleteNote} catchIndexToModifyNote={catchIndexToModifyNote}/>
+          <FaPlusSquare className='icon-addNote' onClick={switchStateToTrue}/>
+          <IndexToModifyContext.Provider value={indexNoteToModify}>
+          {renderSwitchComponent(<NoteForm addNote={addNote} hideNoteForm={hideNoteForm} modifyNote={modifyNote} resetIndexNote={resetIndexNote}/>)}
+          </IndexToModifyContext.Provider>
         </div>
       </NotesContext.Provider>
 );}

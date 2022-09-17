@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import './Note.css';
 
-import { FaTrashAlt } from 'react-icons/fa'
+import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 
 import { NotesContext } from '../containers/NoteBody/NoteBody'
 
-const Note = ({ indexItem, deleteNote }) => {
+const Note = ({ indexItem, deleteNote, catchIndexToModifyNote }) => {
   
   const notesContext = useContext(NotesContext)
   function sendNoteToDelete(){
@@ -13,16 +13,18 @@ const Note = ({ indexItem, deleteNote }) => {
     deleteNote(index)
   }
 
-  function openNote(){
-    console.log('abre la nota para modificarla o leer')
+  function sendDataToEdit(){
+    catchIndexToModifyNote(indexItem)
   }
     return(
-      <tr className="Note">
-        <td className='td' onClick={openNote}>{notesContext[indexItem].title}</td>
-        <td className='td'>{notesContext[indexItem].description}</td>
-        <td className='td note_text'>{notesContext[indexItem].text}</td>
-        <td onClick={sendNoteToDelete}><FaTrashAlt className='icon-trash'/></td>
-      </tr>
+      <div className="Note">
+        <p>{notesContext[indexItem].title}</p>
+        <p>{notesContext[indexItem].description.properies.type}</p>
+        <p>{notesContext[indexItem].description.comment}</p>
+        {/* <p>{notesContext[indexItem].text}</p> */}
+        <FaEdit className='icon-edit' onClick={sendDataToEdit}/>
+        <FaTrashAlt className='icon-trash' onClick={sendNoteToDelete}/>
+      </div>
 );}
 
 export default Note;
