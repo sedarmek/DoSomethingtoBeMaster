@@ -50,7 +50,8 @@
 .Note_properies select, .Note_properies input{
   color: inherit;
   border: none;
-  background-color: #2f2f59;
+  outline: none;
+  background-color: #1d222b;
 }
 .Note_comment{
   border-bottom: 0.1rem solid #c5d1e4;
@@ -62,7 +63,6 @@
   padding: 0.1rem;
   resize: none;
   border: none;
-  border-radius: 0.2rem;
   box-shadow: 0.1rem 0.1rem 0.5rem #202030;
   background-color: inherit;
 }

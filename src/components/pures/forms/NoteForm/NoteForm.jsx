@@ -9,15 +9,14 @@ const NoteForm = ({ addNote, hideNoteForm, modifyNote, resetIndexNote }) => {
   
   let titleRef = useRef('')
   let typeRef = useRef('note')
-  let dueDateRef = useRef('16-09-2022')
+  let dueDateRef = useRef('')
   let tagsRef = useRef('none')
   let commentRef = useRef('')
   let textRef = useRef('')
   const notesContext = useContext(NotesContext)
   let indexOfNoteContext = useContext(IndexToModifyContext)
-  let defaultNote = new Note('', '', '', '', '',  '');
+  let defaultNote = new Note('', 'note', '', 'none', '',  '');
   let [noteData, setNoteData] = useState(notesContext[indexOfNoteContext] ?? defaultNote)
-  
   function updateNoteData(e){
     let currentNoteData = {...noteData}
     if(e.target.name === 'title') currentNoteData.title = e.target.value
@@ -67,7 +66,7 @@ const NoteForm = ({ addNote, hideNoteForm, modifyNote, resetIndexNote }) => {
           <option value="other">Other</option>
         </select>
       </div>
-      <textarea name='comment' className='Note_comment' placeholder='write description here' ref={commentRef} value={noteData.description.comment} onChange={updateNoteData}/>
+      <textarea name='comment' className='Note_comment' placeholder='write comment here' ref={commentRef} value={noteData.description.comment} onChange={updateNoteData}/>
     </div>
     <textarea name='text' placeholder='write note here' ref={textRef} value={noteData.text} onChange={updateNoteData}/>
     <div className='NoteForm_buttons'>

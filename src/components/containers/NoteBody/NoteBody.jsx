@@ -13,27 +13,30 @@ export const NotesContext = createContext([])
 export const IndexToModifyContext = createContext(null);
 
 const NoteBody = () => {
-    let defaultNote = new Note('title', 'none', '16/09/2022', 'none', 'comment',  'texto');
-    let initialNotes = [defaultNote];
-    let [notesData, setNotesData] = useState(initialNotes);
+    let localStorageNotes = JSON.parse(localStorage.getItem('localStorageNotes'));
+    const initialNotesData = [new Note('title', 'note', '', 'none', 'comment', 'texto')];
+
     let [{renderSwitchComponent}, , {switchStateToFalse, switchStateToTrue}] = useStateBoolean();
+    let [notesData, setNotesData] = useState(localStorageNotes ?? initialNotesData);
     let [indexNoteToModify, setIndexNoteToModify] = useState(null);
 
     function addNote(newNote){
       let currentNotesData = [...notesData, newNote]
+      localStorage.setItem('localStorageNotes', JSON.stringify(currentNotesData))
       setNotesData(currentNotesData)
     }
     function deleteNote(noteIndex){
         setNotesData(()=>{let currentNotesData = [...notesData]
         currentNotesData.splice(noteIndex, 1)
+        localStorage.setItem('localStorageNotes', JSON.stringify(currentNotesData))
         return currentNotesData
       })
     }
-    //se ejecutara en el form
     function modifyNote(noteIndex, modifiedData){
       setNotesData(()=>{
         let currentNotesData = [...notesData];
         currentNotesData.splice(noteIndex, 1, modifiedData);
+        localStorage.setItem('localStorageNotes', JSON.stringify(currentNotesData))
         return currentNotesData
       })
     }
