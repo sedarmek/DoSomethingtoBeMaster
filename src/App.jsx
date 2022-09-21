@@ -3,7 +3,6 @@ import './App.css';
 
 import Cabecera from './components/Cabecera/Cabecera'
 import HomePage from './pages/HomePage/HomePage';
-import NotePage from './pages/NotePage/NotePage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
@@ -16,7 +15,6 @@ function App() {
         <Cabecera/>
         <Routes>
         <Route path='' element={<HomePage/>}/>
-        <Route path='/notes' element={<NotePage/>}/>
         <Route path='/about' element={<AboutPage/>}/>
         <Route path ='*' element={<NotFoundPage/>}/>
       </Routes>
