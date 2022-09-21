@@ -6,6 +6,26 @@
   margin: 0;
   padding: 0;
 }
+*::-webkit-scrollbar{
+  -webkit-appearance: none;
+}
+*::-webkit-scrollbar:vertical {
+  width:0.3rem;
+}
+*::-webkit-scrollbar:horizontal {
+  height: 0.2rem;
+}
+*::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #79797980;
+  border-radius: 0.2rem;
+}
+*::-webkit-scrollbar-track{
+  border-radius: 0;
+  background-color: #38456682;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -69,26 +69,6 @@
 .NoteForm textarea:focus{
   outline: none;
 }
-.NoteForm textarea::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-.NoteForm textarea::-webkit-scrollbar:vertical {
-  width:0.3rem;
-}
-.NoteForm textarea::-webkit-scrollbar:horizontal {
-  height: 0.2rem;
-}
-.NoteForm textarea::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
-  display: none;
-}
-.NoteForm textarea::-webkit-scrollbar-thumb {
-  background-color: #79797980;
-  border-radius: 0.2rem;
-}
-.NoteForm textarea::-webkit-scrollbar-track{
-  border-radius: 0;
-  background-color: #38456682;
-}
 .NoteForm_buttons{
   display: grid;
   grid-auto-flow: column;
