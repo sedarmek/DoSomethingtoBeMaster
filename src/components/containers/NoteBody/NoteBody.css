@@ -1,11 +1,13 @@
 .NoteBody {
   box-sizing: border-box;
-  min-height: 80vh;
-  width: auto;
+  height: auto;
+  width: 90vw;
   margin: 0;
   padding: 0;
 }
 .icon-addNote{
   color: #274527;
   font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
 }

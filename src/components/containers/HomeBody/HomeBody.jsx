@@ -1,10 +1,14 @@
 import React, { useState, createContext } from 'react';
 import './HomeBody.css';
 
+import { FaStickyNote } from 'react-icons/fa'
+
+import { Hability } from '../../../models/hability.class';
 import Canvas from '../../Canvas/Canvas'
 import GeneradorHabilidad from '../../GeneradorHabilidad/GeneradorHabilidad';
 import Itools from '../Itools/Itools';
-import { Hability } from '../../../models/hability.class';
+import TogglerComponent from '../../TogglerComponent/TogglerComponent';
+import NoteBody from '../NoteBody/NoteBody';
 
 export const HabilitiesContext = createContext([]);
 
@@ -42,15 +46,25 @@ function HomeBody() {
   function saveInLocalStorage(storageName, data) {
       localStorage.setItem(storageName, JSON.stringify(data))
   }
-
+  let toggleStyle = {
+    color: 'white',
+    maxHeight: '80vh',
+    width: 'auto',
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    borderRadius: '0 0 0.7rem 0',
+    backgroundColor : '#20242c',
+    overflow: 'auto'
+  }
   return (
     <HabilitiesContext.Provider value={habilitiesData}>
     <div className="HomeBody">
       <Canvas/>
       <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} UpdateHabilityData={UpdateHabilityData} deleteHability={deleteHability}/>
       <Itools/>
+    <TogglerComponent firstIcon={<FaStickyNote className='note-icon'/>} lastIcon={<FaStickyNote className='note-icon'/>} component={<NoteBody/>} toggleStyle={toggleStyle} className='prueba'/>
     </div>
-    {console.log(localStorageHabilities)}
     </HabilitiesContext.Provider>
   );
 }
