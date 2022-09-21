@@ -12,3 +12,13 @@
     list-style: circle;
     list-style-type: circle;
 }
+.aboutDescription_listLevels span{
+  line-height: 1rem;
+  display: inline-block;
+  height: 1.2rem;
+  width: auto;
+  margin: 0;
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+  background-color: #3a4f71;
+}

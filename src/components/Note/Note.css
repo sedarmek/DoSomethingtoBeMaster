@@ -16,8 +16,7 @@
   height: 1.7rem;
   width: auto;
   padding: 0.2rem;
-  border-radius: 0.2rem;
-  box-shadow: -0.15rem 0rem 0rem #2c2f41;
+  box-shadow: inset 0.15rem 0rem 0rem #2c2f41;
   background-color: #1e222d;
   overflow: hidden;
 }

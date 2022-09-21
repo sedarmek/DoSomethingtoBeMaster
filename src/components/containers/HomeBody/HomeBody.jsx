@@ -48,15 +48,16 @@ function HomeBody() {
   }
   let toggleStyle = {
     color: 'white',
-    maxHeight: '80vh',
+    height: '80vh',
     width: 'auto',
     position: 'absolute',
     top: '0',
     left: '0',
     borderRadius: '0 0 0.7rem 0',
     backgroundColor : '#20242c',
-    overflow: 'auto'
+    overflowX: 'auto'
   }
+  
   return (
     <HabilitiesContext.Provider value={habilitiesData}>
     <div className="HomeBody">

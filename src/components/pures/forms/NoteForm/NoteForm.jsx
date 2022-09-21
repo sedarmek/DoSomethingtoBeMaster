@@ -17,6 +17,7 @@ const NoteForm = ({ addNote, hideNoteForm, modifyNote, resetIndexNote }) => {
   let indexOfNoteContext = useContext(IndexToModifyContext)
   let defaultNote = new Note('', 'note', '', 'none', '',  '');
   let [noteData, setNoteData] = useState(notesContext[indexOfNoteContext] ?? defaultNote)
+
   function updateNoteData(e){
     let currentNoteData = {...noteData}
     if(e.target.name === 'title') currentNoteData.title = e.target.value
@@ -63,6 +64,8 @@ const NoteForm = ({ addNote, hideNoteForm, modifyNote, resetIndexNote }) => {
           <option value="none">None</option>
           <option value="study">Study</option>
           <option value="work">Work</option>
+          <option value="home">Home</option>
+          <option value="lifeStyle">Life Style</option>
           <option value="other">Other</option>
         </select>
       </div>
