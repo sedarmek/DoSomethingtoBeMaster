@@ -1,7 +1,7 @@
 .NoteBody {
   box-sizing: border-box;
   height: auto;
-  width: 90vw;
+  width: auto;
   margin: 0;
   padding: 0;
 }

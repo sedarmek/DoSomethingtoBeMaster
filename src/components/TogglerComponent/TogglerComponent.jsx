@@ -1,32 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import './TogglerComponent.css';
 
 import { useStateBoolean } from '../../hooks/useStateBoolean';
 
-const TogglerComponent = ({firstIcon, lastIcon, component, toggleStyle}) => {
+const TogglerComponent = ({firstIcon, lastIcon, component, styles}) => {
 
   let [{toggleStateBoolean, renderSwitchComponent}, isContainerItoolsShown] = useStateBoolean();
   
-  let containerButtonStyle = {
-    position: 'relative',
-    backgroundColor: '#20242b',
-    textAlign: 'right',
-
-  }
-  let buttonStyle = {
-    color: 'black',
-    height: 'auto',
-    width: 'auto',
-    margin: '0',
-    padding: '0',
-    border: 'none',
-    backgroundColor: 'transparent',
-  }
   return(
-  <div className="TogglerComponent" style={toggleStyle}>
-    <div style={containerButtonStyle}>
-      <button style={buttonStyle} onClick={()=> toggleStateBoolean()}>
+  <div className="TogglerComponent" style={styles.toggler}>
+    <div style={styles.header}>
+      <h2 style={styles.title.style}>
+        {isContainerItoolsShown 
+          ? styles.title.name 
+          : ''
+        }
+      </h2>
+      <button style={styles.button} onClick={()=> toggleStateBoolean()}>
         {isContainerItoolsShown 
           ? firstIcon 
           : lastIcon
@@ -36,9 +25,5 @@ const TogglerComponent = ({firstIcon, lastIcon, component, toggleStyle}) => {
     {renderSwitchComponent(component)}
   </div>
 )};
-
-TogglerComponent.propTypes = {};
-
-TogglerComponent.defaultProps = {};
 
 export default TogglerComponent;

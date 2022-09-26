@@ -32,8 +32,6 @@ function HomeBody() {
       return currentHabilitiesData
     })
   }
-
- 
   function UpdateHabilityData(data){
     setHabilitiesData(()=>{
       let currentHabilitiesData = [...habilitiesData]
@@ -46,25 +44,61 @@ function HomeBody() {
   function saveInLocalStorage(storageName, data) {
       localStorage.setItem(storageName, JSON.stringify(data))
   }
-  let toggleStyle = {
-    color: 'white',
-    height: '80vh',
-    width: 'auto',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    borderRadius: '0 0 0.7rem 0',
-    backgroundColor : '#20242c',
-    overflowX: 'auto'
+  let stylesToggler = {
+    toggler: {
+      color: 'white',
+      height: '80vh',
+      maxWidth: '30rem',
+      margin: '0',
+      padding: '0.3rem',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      borderRadius: '0 0 0.7rem 0',
+      backgroundColor : '#20242c',
+      overflowX: 'auto'
+    },
+    header: {
+      position: 'relative',
+      backgroundColor: '#0000002c',
+      textAlign: 'right',
+    },
+    title: {
+      name: 'NOTAS',
+      style: {
+        color: '#ccc',
+        height: 'auto',
+        width: 'auto',
+        margin: '0',
+        padding: '0',
+        border: 'none',
+        backgroundColor: 'transparent',
+        display: 'inline-block'
+      }
+    },
+    button: {
+      color: 'black',
+      height: 'auto',
+      width: 'auto',
+      margin: '0',
+      padding: '0',
+      border: 'none',
+      backgroundColor: 'transparent',
+      display: 'inline-block'
+    }
   }
-  
   return (
     <HabilitiesContext.Provider value={habilitiesData}>
     <div className="HomeBody">
       <Canvas/>
       <GeneradorHabilidad className='GeneradorHabilidad' IncrementarHabilidades={incrementarHabilidades} UpdateHabilityData={UpdateHabilityData} deleteHability={deleteHability}/>
       <Itools/>
-    <TogglerComponent firstIcon={<FaStickyNote className='note-icon'/>} lastIcon={<FaStickyNote className='note-icon'/>} component={<NoteBody/>} toggleStyle={toggleStyle} className='prueba'/>
+    <TogglerComponent 
+      firstIcon={<FaStickyNote className='note-icon'/>} 
+      lastIcon={<FaStickyNote className='note-icon'/>} 
+      component={<NoteBody/>} 
+      styles={stylesToggler}
+    className='prueba'/>
     </div>
     </HabilitiesContext.Provider>
   );

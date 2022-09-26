@@ -2,12 +2,12 @@
   color: white;
   box-sizing: border-box;
   height: 95vh;
-  width: 95vw;
+  min-width: 25rem;
   border-radius: 1rem;
   position: fixed;
-  left: 50%;
+  left: 0%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(10%, -50%);
   margin: 0;
   padding: 0.2rem;
   background-color: #1e222d;

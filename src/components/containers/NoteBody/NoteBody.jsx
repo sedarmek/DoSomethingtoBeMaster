@@ -53,13 +53,13 @@ const NoteBody = () => {
 
     return(
       <NotesContext.Provider value={notesData}>
+      <IndexToModifyContext.Provider value={indexNoteToModify}>
         <div className="NoteBody">
           <GeneradorNotes deleteNote={deleteNote} catchIndexToModifyNote={catchIndexToModifyNote}/>
           <FaPlusSquare className='icon-addNote' onClick={switchStateToTrue}/>
-          <IndexToModifyContext.Provider value={indexNoteToModify}>
           {renderSwitchComponent(<NoteForm addNote={addNote} hideNoteForm={hideNoteForm} modifyNote={modifyNote} resetIndexNote={resetIndexNote}/>)}
-          </IndexToModifyContext.Provider>
         </div>
+      </IndexToModifyContext.Provider>
       </NotesContext.Provider>
 );}
 
